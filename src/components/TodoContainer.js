@@ -17,11 +17,18 @@ export const TodoContainer = () => {
     console.log(todos);
   };
 
-// mark task complete
+// mark todo complete
   const toggleComplete = id => { 
     setTodos(todos.map(todo => todo.id === id ? {
       todo, completed: !todo.completed} : todo
       ))}
+
+// delete todo
+  const deleteTodo = id => {
+    setTodos(todos.filter(todo => todo.id !== id ));
+  }
+
+  
   return (
     <div className="TodoContainer">
       <h1>My ToDos</h1>
@@ -33,6 +40,7 @@ export const TodoContainer = () => {
           task={todo} 
           key={index}
           toggleComplete={toggleComplete}
+          deleteTodo={deleteTodo}
           
           />
       ))}

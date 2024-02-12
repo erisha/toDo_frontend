@@ -2,7 +2,7 @@ import React from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-export const Todo = ({ task, toggleComplete }) => {
+export const Todo = ({ task, toggleComplete, deleteTodo}) => {
   return (
     <div className="Todo">
       <p 
@@ -11,7 +11,7 @@ export const Todo = ({ task, toggleComplete }) => {
       </p>
       <div>
         <EditIcon />
-        <DeleteIcon />
+        <DeleteIcon onClick={() => deleteTodo(task.id)} />
       </div>
     </div>
   );
